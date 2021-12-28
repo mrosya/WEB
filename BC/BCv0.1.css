@@ -1,0 +1,107 @@
+body {
+	margin: 0;
+	font-family: arial;
+	font-size: 20;
+}
+/* Блок навигации */
+.navigation ul {
+  margin: 0;
+  line-height: 2em;
+  background-color: black;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.navigation li {
+  list-style-type: none;
+}
+
+.navigation ul li a {
+  padding: 0em 1em 0em 1em;
+  text-decoration: none;
+  color: white;
+  font-size: 22;
+  transition: text-shadow 0.4s;
+}
+
+.navigation ul li a:hover {
+  text-shadow: 0 0 .9px red, 0 0.2px .9px #ba2ade;
+ }
+
+.title {
+  margin-left: 10em;
+  margin-top: 6em;
+}
+
+h3 {
+	margin-left: 10px;
+}
+
+.icons {
+  margin-left: 15em;
+  margin-top: 2em;
+}
+
+.content {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 10em;
+  margin-bottom: 10em;
+}
+
+.contentbody {
+	position: relative; /* Относительно позиционируемый эл-т */
+	z-index: 0; /* Положение эл-та и нижестоящих эл-тов по оси Z */
+	width: 200px; /* Ширина эл-та */
+	height: 330px; /* Высота эл-та*/
+	border-radius: 10px; /* Скругленность границ блока */
+	overflow: hidden; /* Определяет необходимо ли подрезать контент в случае переполнения блока*/
+	margin: 30px auto;
+	background: #e6ebb5;
+	text-align: center;
+	flex-basis: 22em;
+}
+
+.contentbody::before {
+	content: '';
+	position: absolute;
+	z-index: -2;
+	left: -50%;
+	top: -50%;
+	width: 200%;
+	height: 200%;
+	background-color: #BFE2FF;
+	background-repeat: no-repeat;
+	background-size: 50% 50%, 50% 50%;
+	background-position: 0 0, 100% 0, 100% 100%, 0 100%;
+	background-image: linear-gradient(#BFE2FF, #BFE2FF), linear-gradient(#337AB7, #337AB7), linear-gradient(#BFE2FF, #BFE2FF), linear-gradient(#337AB7, #337AB7);
+	animation: anim-contentbody 4s linear infinite;
+}
+
+.contentbody::after {
+	content: '';
+	position: absolute;
+	z-index: -1;
+	left: 6px;
+	top: 6px;
+	width: calc(100% - 12px);
+	height: calc(100% - 12px);
+	background: white;
+	border-radius: 5px;
+}
+
+@keyframes anim-contentbody {
+	100% {
+		transform: rotate(1turn);
+	}
+}
+
+.contentbody p {
+  margin: 0;
+  text-align: center;
+}
+
+.last_p {
+	margin-bottom: 1em;
+}
